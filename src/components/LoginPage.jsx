@@ -1,5 +1,6 @@
 'use client'
 import React, {useState} from "react";
+import { useRouter } from 'next/navigation';
 
 
 export default function LoginPage() {
@@ -9,8 +10,13 @@ export default function LoginPage() {
         password: "",
     });
 
+    const router = useRouter();
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (formData.email && formData.password) {
+            router.push('/feed')
+        }
     }
 
     return (
